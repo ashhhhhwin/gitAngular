@@ -1,0 +1,65 @@
+<p>employeecrud works!</p>
+<form>
+    Enter the ID<input type="number" id="ID" name="id" [(ngModel)]="getInfoEmployee.empID">
+    <br/>
+    Enter the First Name<input type="text" id="fname" name="fname"[(ngModel)]="getInfoEmployee.empFirstName">
+    <br/>
+    Enter the Last Name<input type="text" id="lname" name="lname"[(ngModel)]="getInfoEmployee.empLastName">
+    <br/>
+    Enter the Salary<input type="text" id="salarty" name="sal" [(ngModel)]="getInfoEmployee.empSalary"> 
+    <br/>
+    <button class="btn btn-primary" id="Add" name="ADD" (click)="addEmployee()">ADD</button> &nbsp;&nbsp;&nbsp;
+    
+    <button class="btn btn-primary" id="Update" name="Update" (click)="updateEmployee()">UPDATE</button>
+</form>
+<div>
+    
+
+
+
+    <hr/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                
+                <th>
+                    First Name
+                </th>
+                
+                <th>
+                    Last Name
+                </th>
+                
+                <th>
+                    Salary
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of emp,let i=index">
+             <td>
+                 {{e.empID}}
+             </td>
+                
+             <td>
+                {{e.empFirstName}}
+            </td>
+            
+            <td>
+                {{e.empLastName}}
+            </td>
+            
+            <td>
+                {{e.empSalary}}
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="deleteEmployee(e.empID)">Delete</button>
+                <button class="btn btn-primary" (click)="EditEmployee(e.empID)">Edit</button>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

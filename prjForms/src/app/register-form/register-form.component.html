@@ -1,0 +1,33 @@
+<form [formGroup]="registerform">
+    <p>
+    <label>Enter the name: </label>
+    <input type="text" id="name" name="name" formControlName=>
+    </p>
+    <p>
+        <label>Enter the email: </label>
+        <input type="text" id="eid" name="eid" formControlName="mailid">
+
+    </p>
+    <div *ngIf="!registerform.get('mailid')?.valid && (registerform.get('mailid')?.dirty || registerform.get('mailid')?.touched)" class="error">
+        <div *ngIf="registerform.get('mailid')?.errors?.required">
+            <small class="text-danger">Email is required</small>
+        </div>
+        <div *ngIf="registerform.get('mailid')?.errors?.email">
+            <small class="text-danger">Invalid Email Address</small>
+        </div>
+    </div>
+    <p>
+        <label>Create new password: </label>
+        <input type="password" id="pwd" name="pwd">
+    </p>
+    <p>
+        <label>Confirm password: </label>
+        <input type="password" id="cpwd" name="cpwd">
+    </p>
+    <p>
+        <label>Enter the Phone Number: </label>
+        <input type="text" id="phn" name="phn">
+    </p>
+    <button type="submit" class="btn btn-primary">Register</button>
+    
+</form>

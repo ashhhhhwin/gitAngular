@@ -1,0 +1,30 @@
+<p>display-product works!</p>
+
+<table class="table">
+    <thead>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Image</th>
+    </thead>
+    <tbody *ngFor="let p of pro">
+        <tr>
+            <td>
+                {{p.pname}}
+
+            </td>
+            <td>
+                {{p.price}}
+            </td>
+            <td>
+                {{p.quantity}}
+            </td>
+            <td>
+                <img [src]=p.image height="100" width="100">
+            </td>
+            <td>
+                <a [routerLink]="['/productinfo/',p.pid]">View more info</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

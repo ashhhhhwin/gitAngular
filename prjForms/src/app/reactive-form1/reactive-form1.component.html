@@ -1,0 +1,36 @@
+<p>reactive-form1 works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+    <p>
+    <label>Enter MailID: </label>
+    <input type="text"formControlName="mailid">
+    
+    </p>
+    <div *ngIf="!loginForm.get('mailid')?.valid && (loginForm.get('mailid')?.dirty || loginForm.get('mailid')?.touched)" class="error">
+        <div *ngIf="loginForm.get('mailid')?.errors?.required">
+            <small class="text-danger">Email is required</small>
+        </div>
+        <div *ngIf="loginForm.get('mailid')?.errors?.email">
+            <small class="text-danger">Invalid Email Address</small>
+        </div>
+    </div>
+    <p>
+        <label>Enter the password: </label>
+        <input type="password"formControlName="pwd">
+    </p>
+    <div *ngIf="!loginForm.get('pwd')?.valid && (loginForm.get('pwd')?.dirty || loginForm.get('pwd')?.touched)" class="error">
+        <div *ngIf="loginForm.get('pwd')?.errors?.required">
+            <small class="text-danger">password is required</small>
+        </div>
+        
+    </div>
+    <p>
+        <label>Enter Age: </label>
+    <input type="number"formControlName="age">
+    </p>
+    <div *ngIf="!loginForm.get('age')?.valid && (loginForm.get('age')?.dirty || loginForm.get('age')?.touched)" class="error">
+        <div *ngIf="loginForm.get('age')?.errors?.ageRange">
+            <small class="text-danger">Range of age is wrong</small>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">LOGIN</button>
+</form>

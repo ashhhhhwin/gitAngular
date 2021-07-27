@@ -1,0 +1,33 @@
+<p>deptcurd works!</p>
+<form>
+    Enter the Department ID<input type="number" id="ID" name="ID" [(ngModel)]="getInfoDept.did">
+    <br/>
+    Enter the Department Name<input type="text" id="deptn" name="deptn" [(ngModel)]="getInfoDept.dname">
+    <br/>
+    Enter the Department Location<input type="text" id="deptl" name="deptl" [(ngModel)]="getInfoDept.dlocation">
+    <br/>
+    <button class="btn btn-primary" id="Add" name="Add" (click)="addDepartment()">ADD</button> &nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" id="update" name="update"(click)="updateDept()">UPDATE</button>
+</form>
+<div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Department Name</th>
+            <th>Department Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of dt,let i=index">
+            <td>{{d.did}}</td>
+            <td>{{d.dname}}</td>
+            <td>{{d.dlocation}}</td>
+            <td>
+                <button class="btn btn-primary" (click)="deleteDept(d.did)">DELETE</button>
+                 <button class="btn btn-primary" (click)="editDept(d.did)">EDIT</button>
+        </td>
+        </tr>
+    </tbody>
+</table>
+</div>

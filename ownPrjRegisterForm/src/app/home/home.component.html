@@ -1,0 +1,29 @@
+<p>home works!</p>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Academy Courses
+                </th>
+                <th>
+                    Sport/Game
+                </th>
+                <th>
+                    Fees
+                </th>
+            </tr>
+            <tr *ngFor="let c of courses">
+                <td>
+                    <img [src]=c.cimage height="100"width="100">
+                </td>
+                <td>
+                    {{c.cname}}
+                </td>
+                <td>
+                    {{c.cfees}}
+                </td>
+            </tr>
+        </thead>
+    </table>
+</div>

@@ -1,0 +1,78 @@
+
+
+<div class="logo">
+    <img src="assets\images\logo2.jpg" alt="logo" height="120" width="150">
+</div>
+<div class="container">
+<form [formGroup]="registerForm" ([ngSubmit])="createAccount()">
+    <h2>Create Account</h2>
+    <br/>
+    <div class="input-group input-group-sm mb-3">
+    <label>
+        Your Name   <!--Validation of requirement-->
+    </label>
+    <br/>
+    <input type="text" id="name" name="name" formControlName="name">
+    </div>
+    <div *ngIf="!registerForm.get('name')?.valid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched)" class="error">
+        <div *ngIf="registerForm.get('name')?.errors?.required">
+            <small class="text-danger">Name is required</small>
+        </div>
+
+    </div>
+
+    <p>
+        <label>
+            Mobile Number   <!--Validation of +91 format and required-->
+        </label>
+        <br/>
+        <input type="text" id="mnumber" name="mnumber" formControlName="phn">  
+    </p>
+    <div *ngIf="!registerForm.get('phn')?.valid && (registerForm.get('phn')?.dirty || registerForm.get('phn')?.touched)" class="error">
+        <div *ngIf="registerForm.get('phn')?.errors?.required">
+            <small class="text-danger">Mobile is required</small>
+        </div>
+
+    </div>
+    <p>
+        <label>
+            Email (Optional) <!--Validation email-->
+        </label>
+        <br/>
+        <input type="text" id="mailid" name="mailid" formControlName="mailid">
+    </p>
+    <div *ngIf="!registerForm.get('mailid')?.valid && (registerForm.get('mailid')?.dirty || registerForm.get('mailid')?.touched)" class="error">
+        <div *ngIf="registerForm.get('mailid')?.errors?.email">
+            <small class="text-danger">Invalid Email</small>
+        </div>
+    </div>
+
+    <p>
+        <label>
+            Password <!--Validation minlength (6 characters)-->
+        </label>
+        <br/>
+        <input type="password" id="pwd" name="pwd" placeholder="Atleast 6 characters" formControlName="pwd">
+    </p>
+    <div *ngIf="!registerForm.get('pwd')?.valid && (registerForm.get('pwd')?.dirty || registerForm.get('pwd').touched)" class="error">
+        <div *ngIf="registerForm.get('pwd')?.errors?.required">
+            <small class="text-danger">Password is required</small>
+        </div>
+        <div *ngIf="registerForm.get('pwd')?.errors?.minlength">
+            <small class="text-danger">Minimum 6 characters</small>
+        </div>
+    </div>
+
+
+
+    <p>
+        We will send you a text to verify your phone.
+        <br/>
+        Message and Data rates may apply
+    </p>
+
+    <button type="button" class="btn btn-warning" [disabled]="!registerForm.valid">Continue</button>
+
+
+</form>
+</div>

@@ -1,0 +1,19 @@
+.container{
+
+border-style: groove;
+width: 350px;
+height: 500px;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.container input{
+    border-style: dotted;
+    width:300px;
+    
+}
+.container button{
+    width: 310px;
+}
+.logo{
+    text-align: center;
+}

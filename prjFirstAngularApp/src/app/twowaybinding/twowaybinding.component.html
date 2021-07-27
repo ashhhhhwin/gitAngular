@@ -1,0 +1,22 @@
+<p>twowaybinding works!</p>
+<div>
+Enter your name<input type="text" [(ngModel)]="uname"/><br/> <!--for ngModel you have to import packages-->
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+        <th>Sr. No</th>
+        <th>Name</th>
+        <th>Colour</th>
+        <th>Model</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let c of car, let i = index">
+        <tr *ngIf="c.color === 'Red'">
+            <td>{{i+1}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.color}}</td>
+            <td>{{c.model}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
